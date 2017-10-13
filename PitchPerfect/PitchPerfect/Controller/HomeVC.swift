@@ -7,8 +7,12 @@
 //
 
 import UIKit
+import AVFoundation
 
-class HomeVC: UIViewController {
+class HomeVC: UIViewController, AVAudioRecorderDelegate {
+	
+	// Variables
+	var audioRecorder: AVAudioRecorder!
 	
 	// Outlets
 	@IBOutlet weak var recordButtonOutlet: UIButton!
@@ -29,9 +33,25 @@ class HomeVC: UIViewController {
 	// Actions
 	
 	@IBAction func recordButtonPressed(_ sender: UIButton) {
+		
 		stopButtonOutlet.isEnabled = true
 		recordButtonOutlet.isEnabled = false
 		progressLabel.text = "Recording in progress..."
+		
+		let dirPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
+		let recordingName = "recordedVoice.wav"
+		let pathArray = [dirPath, recordingName]
+		let filePath = URL(string: pathArray.joined(separator: "/"))
+		
+		
+		let session = AVAudioSession.sharedInstance()
+		try! session.setCategory(AVAudioSessionCategoryPlayAndRecord, with: AVAudioSessionCategoryOptions.defaultToSpeaker)
+		
+		try! audioRecorder = AVAudioRecorder(url: filePath!, settings: [:])
+		audioRecorder.delegate = self
+		audioRecorder.isMeteringEnabled = true
+		audioRecorder.prepareToRecord()
+		audioRecorder.record()
 		
 	}
 	
@@ -39,8 +59,14 @@ class HomeVC: UIViewController {
 		stopButtonOutlet.isEnabled = false
 		recordButtonOutlet.isEnabled = true
 		progressLabel.text = "Tap to record"
-		performSegue(withIdentifier: "toModeVCSegue", sender: self)
+	
+		audioRecorder.stop()
+		let audioSession = AVAudioSession.sharedInstance()
+		try! audioSession.setActive(false)
 	}
 	
+	func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
+		performSegue(withIdentifier: "toModeVCSegue", sender: self)
+	}
 
 }

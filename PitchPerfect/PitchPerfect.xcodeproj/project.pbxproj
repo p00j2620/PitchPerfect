@@ -14,6 +14,7 @@
 		009941121F8AEA8000297E3E /* PitchPerfectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009941111F8AEA8000297E3E /* PitchPerfectTests.swift */; };
 		00B600541F8D345D00524558 /* ModeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B600531F8D345D00524558 /* ModeVC.swift */; };
 		00B600561F8D34C500524558 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B600551F8D34C500524558 /* HomeVC.swift */; };
+		00D7514C1F90F5CC00053EAE /* CircleButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D7514B1F90F5CC00053EAE /* CircleButtons.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		009941131F8AEA8000297E3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00B600531F8D345D00524558 /* ModeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeVC.swift; sourceTree = "<group>"; };
 		00B600551F8D34C500524558 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		00D7514B1F90F5CC00053EAE /* CircleButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButtons.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 		00B600501F8D341600524558 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				00D7514B1F90F5CC00053EAE /* CircleButtons.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -229,6 +232,7 @@
 				00B600561F8D34C500524558 /* HomeVC.swift in Sources */,
 				00B600541F8D345D00524558 /* ModeVC.swift in Sources */,
 				009940FD1F8AEA8000297E3E /* AppDelegate.swift in Sources */,
+				00D7514C1F90F5CC00053EAE /* CircleButtons.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
