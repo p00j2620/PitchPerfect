@@ -66,7 +66,20 @@ class HomeVC: UIViewController, AVAudioRecorderDelegate {
 	}
 	
 	func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
-		performSegue(withIdentifier: "toModeVCSegue", sender: self)
+		if flag {
+			performSegue(withIdentifier: "toModeVCSegue", sender: audioRecorder.url)
+		} else {
+			print("File failed to save.")
+		}
+		
+	}
+	
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		if segue.identifier == "toModeVCSegue" {
+			let modeVC = segue.destination as! ModeVC
+			let recordedAudioURL = sender as! URL
+			modeVC.recordedAudioURL = recordedAudioURL
+		}
 	}
 
 }

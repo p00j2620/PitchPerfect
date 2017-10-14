@@ -1,5 +1,5 @@
 //
-//  CircleButtons.swift
+//  RoundedButton.swift
 //  PitchPerfect
 //
 //  Created by Arthur Pujols on 10/13/17.
@@ -9,7 +9,7 @@
 import UIKit
 @IBDesignable
 
-class CircleButtons: UIButton {
+class RoundedButton: UIButton {
 
 	override func awakeFromNib() {
 		super.awakeFromNib()
